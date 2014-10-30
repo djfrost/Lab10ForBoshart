@@ -2,7 +2,7 @@ AutomatedMakefile = am
 CC = g++
 
 FILES = HybridDriver.o
-EXECUTABLE = HybridADT
+EXECUTABLE = HybridDriver
 
 PROJECT_PATH = $(PROJECT_DIR)
 
@@ -20,5 +20,5 @@ Project: 		$(FILES)
 
 
 
-HybridDriver.o: HybridDriver.cpp Hybrid.h
+HybridDriver.o: Hybrid.h HybridDriver.cpp 
 					$(COMPILE) HybridDriver.cpp
