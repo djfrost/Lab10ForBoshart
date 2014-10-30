@@ -57,7 +57,7 @@ T* dequeue()
 }
 ListDoublyLinkedIterator<T>* iterator()
 {
-
+	
 }
 
 
