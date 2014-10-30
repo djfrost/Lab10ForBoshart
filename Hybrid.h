@@ -52,12 +52,16 @@ bool Hybrid<T>::isEmpty()
 template < class T >
 void Hybrid<T>::enqueue(T* item)
 {
-	
+	q->enqueue(item);
+	sldl->addDN(item);
 }
 
 template < class T >
 T* Hybrid<T>::dequeue()
 {
+	T* item = q->dequeue();
+	sldl->remove(item);
+	
 	
 }
 
