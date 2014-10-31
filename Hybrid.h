@@ -64,7 +64,8 @@ T* Hybrid<T>::dequeue()
 template < class T >
 ListDoublyLinkedIterator<T>* Hybrid<T>::iterator()
 {
-	sldl->	
+	ListDoublyLinkedIterator<T>* iter = sldl->iterator();
+	return iter;	
 }
 
 
