@@ -86,9 +86,14 @@ T* SortedListDoublyLinked<T>::remove(DoubleNode<T>* curr)
 	DoubleNode<T>* prev = curr->getPrev();
 	DoubleNode<T>* after = curr->getNext();
 	cout << "Before If else" << endl;
-	if ( prev == NULL)
+	if( sze == 1)
+	{
+		cout << "last case";
+	}
+	else if ( prev == NULL)
 	{
 		cout << "In prev null case" << endl;
+		cout << sze;
 		loc = after;
 		after->setPrev(NULL);
 	}
@@ -99,7 +104,6 @@ T* SortedListDoublyLinked<T>::remove(DoubleNode<T>* curr)
 	else 
 	{
 		cout << "In else" << endl;
-		cout << &after->getItem()->getKey();
 		prev->setNext(after);
 		cout << "In setPrev";
 		after->setPrev(prev);

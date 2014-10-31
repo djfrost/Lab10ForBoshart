@@ -49,7 +49,7 @@ Hybrid<T>::~Hybrid()
 template < class T >
 bool Hybrid<T>::isEmpty()
 {
-	int size = q->size();
+	int size = sldl->size();
 	cout << size;
 	return size == 0;
 }

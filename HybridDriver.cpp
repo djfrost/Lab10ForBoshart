@@ -64,7 +64,6 @@ cout << " Not Empty";
    
    cout << "TESTING";
    delete h;
-
    deleteCDs(cds);
    delete cds;
    return 0;
