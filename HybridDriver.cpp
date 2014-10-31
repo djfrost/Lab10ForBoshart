@@ -51,12 +51,18 @@ int main()
       cd->displayCD();
    }
    delete iter;
-
+cout << " Not Empty";
+	cout << h->isEmpty();
    while(!(h->isEmpty()))
    {
+	cout << " Not Empty";
+	cout << h->isEmpty();
       CD* cd = h->dequeue();
+	  cout << "dequeue a non existent item";
       cd->displayCD();
    }
+   
+   cout << "TESTING";
    delete h;
 
    deleteCDs(cds);

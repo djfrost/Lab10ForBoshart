@@ -4,7 +4,8 @@
 
 #if !defined (SORTEDDOUBLYLINKED_H)
 #define SORTEDDOUBLYLINKED_H
-
+#include <iostream>
+using namespace std;
 #include "ListDoublyLinkedIterator.h"
 #include "Text.h"
 using CSC2110::String;
@@ -81,18 +82,29 @@ T* SortedListDoublyLinked<T>::remove(DoubleNode<T>* curr)
 
 	T* item;
 	item = curr->getItem();
+	curr = findLocationRemove(item->getKey());
 	DoubleNode<T>* prev = curr->getPrev();
 	DoubleNode<T>* after = curr->getNext();
+	cout << "Before If else" << endl;
 	if ( prev == NULL)
 	{
+		cout << "In prev null case" << endl;
 		loc = after;
 		after->setPrev(NULL);
 	}
-	else 
+	else if (after == NULL)
 	{
 		prev->setNext(after);
+	}
+	else 
+	{
+		cout << "In else" << endl;
+		cout << &after->getItem()->getKey();
+		prev->setNext(after);
+		cout << "In setPrev";
 		after->setPrev(prev);
 	}
+	cout << "Problem is in delete";
 	sze--;
 	delete curr;
 	return item;

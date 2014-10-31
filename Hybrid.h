@@ -1,6 +1,9 @@
 #if !defined (HYBRID_H)
 #define HYBRID_H
 
+
+#include <iostream>
+using namespace std;
 #include "QueueLinked.h"
 using CSC2110::QueueLinked;
 #include "SortedListDoublyLinked.h"
@@ -46,7 +49,9 @@ Hybrid<T>::~Hybrid()
 template < class T >
 bool Hybrid<T>::isEmpty()
 {
-	return sldl->isEmpty();
+	int size = q->size();
+	cout << size;
+	return size == 0;
 }
 
 template < class T >
@@ -59,10 +64,15 @@ void Hybrid<T>::enqueue(T* item)
 template < class T >
 T* Hybrid<T>::dequeue()
 {
-	T* item = q->dequeue();
-	sldl->remove(item);
-	
-	
+	T* item;
+	if ( q->size() >0)
+	{
+	item = q->dequeue();
+	cout << "In r";
+	DoubleNode<T>* r = new DoubleNode<T>(item);
+	item = sldl->remove(r);
+	}
+	return item;
 }
 
 template < class T >
