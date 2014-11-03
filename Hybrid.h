@@ -36,9 +36,11 @@ Hybrid<T>::Hybrid(int (*comp_items) (T* item_1, T* item_2), int (*comp_keys) (St
 
 template < class T >
 Hybrid<T>::~Hybrid()
-{
-   delete q;
-   delete sldl;
+{ 
+	cout << "Before q";
+	delete q;
+	cout << "after q";
+	delete sldl;
 }
 
 //DO THIS
@@ -65,12 +67,10 @@ template < class T >
 T* Hybrid<T>::dequeue()
 {
 	T* item;
-	if ( q->size() >0)
+	if (!q->isEmpty())
 	{
 	item = q->dequeue();
-	cout << "In r";
-	DoubleNode<T>* r = new DoubleNode<T>(item);
-	item = sldl->remove(r);
+	sldl->remove(item->getKey());
 	}
 	return item;
 }

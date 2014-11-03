@@ -61,8 +61,11 @@ SortedListDoublyLinked<T>::SortedListDoublyLinked(int (*comp_items) (T* item_1, 
 template < class T >
 SortedListDoublyLinked<T>::~SortedListDoublyLinked()
 {
+	cout << loc;
    removeAll();
+   cout << "After removeall";
    sze = 0;
+   cout << "End of destructor";
 }
 
 template < class T >
@@ -82,13 +85,14 @@ T* SortedListDoublyLinked<T>::remove(DoubleNode<T>* curr)
 
 	T* item;
 	item = curr->getItem();
-	curr = findLocationRemove(item->getKey());
+	//curr = findLocationRemove(item->getKey());
 	DoubleNode<T>* prev = curr->getPrev();
 	DoubleNode<T>* after = curr->getNext();
 	cout << "Before If else" << endl;
 	if( sze == 1)
 	{
 		cout << "last case";
+		loc = NULL;
 	}
 	else if ( prev == NULL)
 	{
@@ -100,6 +104,7 @@ T* SortedListDoublyLinked<T>::remove(DoubleNode<T>* curr)
 	else if (after == NULL)
 	{
 		prev->setNext(after);
+		loc = prev;
 	}
 	else 
 	{
@@ -107,6 +112,7 @@ T* SortedListDoublyLinked<T>::remove(DoubleNode<T>* curr)
 		prev->setNext(after);
 		cout << "In setPrev";
 		after->setPrev(prev);
+		loc=prev;
 	}
 	cout << "Problem is in delete";
 	sze--;
